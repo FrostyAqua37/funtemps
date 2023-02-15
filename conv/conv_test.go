@@ -31,6 +31,7 @@ func TestFarhenheitToCelsius(t *testing.T) {
 	}
 }
 
+<<<<<<< HEAD
 func TestKelvinToCelsius(t *testing.T) {
 	type test struct {
 		input float64;
@@ -55,3 +56,7 @@ func TestFahrenheitToKelvin
 
 // De andre testfunksjonene implementeres her
 // ...
+=======
+// De andre testfunksjonene implementeres her
+// ...
+>>>>>>> 5d7ecb0e3ba2673b281dfa6f4f46732e43eca334

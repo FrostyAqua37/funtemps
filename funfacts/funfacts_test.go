@@ -1,3 +1,7 @@
+<<<<<<< HEAD
+=======
+ lines (27 sloc) 612 Bytes
+>>>>>>> 5d7ecb0e3ba2673b281dfa6f4f46732e43eca334
 package funfacts
 
 import (
