@@ -13,7 +13,6 @@ var funfacts string
 // Bruker init (som anbefalt i dokumentasjonen) for å sikre at flagvariablene
 // er initialisert.
 func init() {
-
 	/*
 	   Her er eksempler på hvordan man implementerer parsing av flagg.
 	   For eksempel, kommando
@@ -56,7 +55,7 @@ func main() {
 	*/
 
 	// Her er noen eksempler du kan bruke i den manuelle testingen
-	fmt.Println(fahr, out, funfacts)
+	fmt.Println(fahrenheit, out, funfacts)
 
 	fmt.Println("len(flag.Args())", len(flag.Args()))
 	fmt.Println("flag.NFlag()", flag.NFlag())
@@ -71,7 +70,6 @@ func main() {
 	}
 
 }
-
 // Funksjonen sjekker om flagget er spesifisert på kommandolinje
 // Du trenger ikke å bruke den, men den kan hjelpe med logikken
 func isFlagPassed(name string) bool {

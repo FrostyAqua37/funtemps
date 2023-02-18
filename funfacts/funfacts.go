@@ -11,8 +11,4 @@ package funfucts
       Luna []string
       Terra []string
   }
-<<<<<<< HEAD
 */
-=======
-*/
->>>>>>> 5d7ecb0e3ba2673b281dfa6f4f46732e43eca334
