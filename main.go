@@ -2,7 +2,7 @@ package main
 
 import "fmt"
 import "flag"
-import "github.com/FrostyAqua37/funtemps/conv"
+import "Github/funtemps/conv"
 
 // Definerer flag-variablene i hoved-"scope"
 var fahr float64
