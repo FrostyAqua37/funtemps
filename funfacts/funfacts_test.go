@@ -13,9 +13,15 @@ import (
 */
 func TestGetFunFacts(t *testing.T) {
 	type test struct {
-		input // her må du skrive riktig type for input
-		want  // her må du skrive riktig type for returverdien
+		input string // her må du skrive riktig type for input
+		want  []string // her må du skrive riktig type for returverdien
 	}
+			
+
+     
+
+	
+    
 
 	// Her må du legge inn korrekte testverdier
 	//tests := []test{
