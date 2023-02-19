@@ -1,4 +1,6 @@
-package funfucts
+package funfacts
+
+
 
 /**
   Implementer funfacts-funksjon:
@@ -12,3 +14,4 @@ package funfucts
       Terra []string
   }
 */
+

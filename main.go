@@ -1,14 +1,16 @@
 package main
 
-import (
-	"flag"
-	"fmt"
-)
+import "fmt"
+import "flag"
+import "github.com/FrostyAqua37/funtemps/conv"
 
 // Definerer flag-variablene i hoved-"scope"
 var fahr float64
 var out string
 var funfacts string
+var celsius float64
+var kelvin float64
+var temperatur string
 
 // Bruker init (som anbefalt i dokumentasjonen) for å sikre at flagvariablene
 // er initialisert.
@@ -23,17 +25,28 @@ func init() {
 	// Definerer og initialiserer flagg-variablene
 	flag.Float64Var(&fahr, "F", 0.0, "temperatur i grader fahrenheit")
 	// Du må selv definere flag-variablene for "C" og "K"
-	flag.StringVar(&out, "out", "C", "beregne temperatur i C - celsius, F - farhenheit, K- Kelvin")
+	flag.StringVar(&out, "out", "C", "beregne temperatur i C - celsius")
 	flag.StringVar(&funfacts, "funfacts", "sun", "\"fun-facts\" om sun - Solen, luna - Månen og terra - Jorden")
 	// Du må selv definere flag-variabelen for -t flagget, som bestemmer
 	// hvilken temperaturskala skal brukes når funfacts skal vises
 
 }
 
+
 func main() {
 
 	flag.Parse()
+	if out == "C" {
+		celsius := FahrenheitToCelsius(fahr)
+		fmt.Printf("%.2f grader fahrenheit is %.2f grader Celsius")
+	} else if out == "K"{
+		kelvin := FahrenheitToKelvin(fahr)
+		fmt.Printf("%.2f grader fahrenheit er %.2f Kelvin\n", fahr, kelvin)
+	} else {
+		fmt.Println("Invalid output unit specified")
+	}
 
+	fmt.Println(isFlagPassed("out"))
 	/**
 	    Her må logikken for flaggene og kall til funksjoner fra conv og funfacts
 	    pakkene implementeres.
@@ -55,7 +68,7 @@ func main() {
 	*/
 
 	// Her er noen eksempler du kan bruke i den manuelle testingen
-	fmt.Println(fahrenheit, out, funfacts)
+	fmt.Println(fahr, out, funfacts)
 
 	fmt.Println("len(flag.Args())", len(flag.Args()))
 	fmt.Println("flag.NFlag()", flag.NFlag())
