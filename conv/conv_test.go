@@ -86,8 +86,8 @@ func TestCelsiusToFahrenheit(t *testing.T) {
  		got := FarhenheitToCelsius(tc.input)
   		if !withinTolerance(tc.want, got, 1e-12) {
     	t.Errorf("expected: %.18f, got: %.18f", tc.want, got)
-  }
-}
+  		}
+	}
 }
 
 func TestCelsiusToKelvin(t *testing.T) {
@@ -107,8 +107,3 @@ func TestCelsiusToKelvin(t *testing.T) {
  		}	
 	}
 }
-
-	
-
-
-

@@ -7,24 +7,23 @@ import (
 	"Github/funtemps/conv"
 )
 
-var fahrenheit float64
-var celsius float64
-var kelvin float64
+var F float64
+var C float64
+var K float64
 var out string
 var funfacts string
 
 func init () {
 
-flag.Float64Var(&fahrenheit, "F", 0.0, "temperatur i fahrenheit")
-flag.Float64Var(&celsius, "C", 0.0, "temperatur i celsius")
-flag.Float64Var(&kelvin, "K", 0.0, "temperatur i kelvin")
+flag.Float64Var(&F, "F", 0.0, "temperatur i grader fahrenheit")
+flag.Float64Var(&C, "C", 0.0, "temperatur i grader celsius")
+flag.Float64Var(&K, "K", 0.0, "temperatur i kelvin")
 flag.StringVar(&out, "out", "C", "regner ut temperatur i C - celsius, F - fahrenheit, K - Kelvin")
 flag.StringVar(&funfacts, "funfacts", "sun", "\"fun-facts\" om sun - Sola, luna - Månen og terra - jorden")
 
 }
 
 func main() {
-
     flag.Parse()
 
 	fmt.Println(fahrenheit, out, funfacts)
@@ -38,12 +37,12 @@ func main() {
 	//Omgjøring fra Fahrenheit til Celsius eller Kelvin.
 
 	switch Float64Var { 
-		case "F"
+	case "F":
 			switch StringVar {
                 case "Celsius":
-                    fmt.Printf("%.2f grader Fahrenheit = %.2f grader Celsius", Fahrenheit, Celsius)
+                    fmt.Printf("%.2f grader Fahrenheit = %.2f grader Celsius", F, C)
                 case "Kelvin":
-					fmt.Printf("%.2f grader Fahrenheit = %.2f grader Kelvin", Fahrenheit, Kelvin)
+					fmt.Printf("%.2f grader Fahrenheit = %.2f grader Kelvin", F, K)
 				default:
 				    fmt.Println("Error: Invalid output temperature type: %s\n", StringVar)
 					return
@@ -53,9 +52,9 @@ func main() {
 		case "C":
             switch StringVar {
 				case "Fahrenheit":
-				    fmt.Printf("%.2f grader Celsius = %.2f grader Fahrenheit", Celsius, Fahrenheit)
+				    fmt.Printf("%.2f grader Celsius = %.2f grader Fahrenheit", C, F)
                 case "Kelvin":
-					fmt.Printf("%.2f grader Celsius = %.2f grader Kelvin", Celsius, Kelvin)
+					fmt.Printf("%.2f grader Celsius = %.2f grader Kelvin", C, K)
 				default: 
 					fmt.Println("Error: Invalid output temperature type: %s\n", StringVar)
 					return
@@ -65,9 +64,9 @@ func main() {
 		case "K":
             switch StringVar {	
 				case "Fahrenheit":
-				    fmt.Printf("%.2f grader Kelvin = %.2f grader Fahrenheit", Kelvin, fahrenheit)
+				    fmt.Printf("%.2f grader Kelvin = %.2f grader Fahrenheit", K, F)
                 case "Celsius":
-					fmt.Printf("%.2f grader Kelvin = %.2f grader Celsius", Kelvin, Celsius)
+					fmt.Printf("%.2f grader Kelvin = %.2f grader Celsius", K, C)
 				default: 
 					fmt.Println("Error: Invalid output temperature type: %s\n", StringVar)
 				    return
