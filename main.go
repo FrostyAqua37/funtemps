@@ -19,7 +19,7 @@ flag.Float64Var(&fahrenheit, "F", 0.0, "temperatur i fahrenheit")
 flag.Float64Var(&celsius, "C", 0.0, "temperatur i celsius")
 flag.Float64Var(&kelvin, "K", 0.0, "temperatur i kelvin")
 flag.StringVar(&out, "out", "C", "regner ut temperatur i C - celsius, F - fahrenheit, K - Kelvin")
-flag.StringVar("funfacts", "funfacts", "sun", "\"fun-facts\" om sun - Sola, luna - Månen og terra - jorden")
+flag.StringVar(&funfacts, "funfacts", "sun", "\"fun-facts\" om sun - Sola, luna - Månen og terra - jorden")
 
 }
 
@@ -35,7 +35,7 @@ func main() {
 	c := "°Celsius"
 	k := "Kelvin"
 
-	//Omgjøring fra Fahrenheit Til Celsius.
+	//Omgjøring fra Fahrenheit til Celsius eller Kelvin.
 
 	switch Float64Var { 
 		case "F"
@@ -47,7 +47,9 @@ func main() {
 				default:
 				    fmt.Println("Error: Invalid output temperature type: %s\n", StringVar)
 					return
-            }
+            	}
+
+		//Omgjøring fra Celsius til Fahrenheit eller Kelvin 
 		case "C":
             switch StringVar {
 				case "Fahrenheit":
@@ -57,16 +59,18 @@ func main() {
 				default: 
 					fmt.Println("Error: Invalid output temperature type: %s\n", StringVar)
 					return
-			}
+				}
+
+		//Omgjøring fra Kelvin til Fahrenheit eller Kelvin
 		case "K":
             switch StringVar {	
 				case "Fahrenheit":
 				    fmt.Printf("%.2f grader Kelvin = %.2f grader Fahrenheit", Kelvin, fahrenheit)
                 case "Celsius":
-					fmt.Printlnfmt.Printf("%.2f grader Kelvin = %.2f grader Celsius", Kelvin, Celsius)
+					fmt.Printf("%.2f grader Kelvin = %.2f grader Celsius", Kelvin, Celsius)
 				default: 
 					fmt.Println("Error: Invalid output temperature type: %s\n", StringVar)
 				    return
-            }
+            	}
 	}
 }
