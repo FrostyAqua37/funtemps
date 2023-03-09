@@ -35,10 +35,9 @@ func main() {
 	c := "°Celsius"
 	k := "Kelvin"
 
-	//Omgjøring fra Fahrenheit Til Celsius.
-
+	//Omgjøring fra Fahrenheit til Celsius eller Kelvin.
 	switch Float64Var { 
-		case "F"
+		case "f"
 			switch StringVar {
                 case "Celsius":
                     fmt.Printf("%.2f grader Fahrenheit = %.2f grader Celsius", Fahrenheit, Celsius)
@@ -48,7 +47,8 @@ func main() {
 				    fmt.Println("Error: Invalid output temperature type: %s\n", StringVar)
 					return
             }
-		case "C":
+	//Omgjøring fra Celsius til Fahrenheit eller Kelvin. 
+		case "c":
             switch StringVar {
 				case "Fahrenheit":
 				    fmt.Printf("%.2f grader Celsius = %.2f grader Fahrenheit", Celsius, Fahrenheit)
@@ -58,7 +58,8 @@ func main() {
 					fmt.Println("Error: Invalid output temperature type: %s\n", StringVar)
 					return
 			}
-		case "K":
+	//Omgjøring fra Kelvin til Celsius eller Fahrenheit. 
+		case "k":
             switch StringVar {	
 				case "Fahrenheit":
 				    fmt.Printf("%.2f grader Kelvin = %.2f grader Fahrenheit", Kelvin, fahrenheit)
@@ -68,5 +69,5 @@ func main() {
 					fmt.Println("Error: Invalid output temperature type: %s\n", StringVar)
 				    return
             }
+		}
 	}
-}

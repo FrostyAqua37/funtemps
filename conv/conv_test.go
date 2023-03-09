@@ -6,7 +6,7 @@ import (
 )
 
 
-func TestFahrenheitToCelsius(t *testing.T) {
+func TestFarhenheitToCelsius(t *testing.T) {
 	type test struct {
 		  input float64
 		  want 	float64
@@ -24,7 +24,7 @@ func TestFahrenheitToCelsius(t *testing.T) {
 	}
 }
 
-func TestFahrenheitToKelvin(t *testing.T) {
+func TestFarhenheitToKelvin(t *testing.T) {
 	type test struct {
 		  input float64
           want 	float64
