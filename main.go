@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"flag"
 
-	"Github/funtemps/conv"
+	"github.com/FrostyAqua37/funtemps/conv"
 )
 
 var F float64
@@ -23,50 +23,62 @@ flag.StringVar(&funfacts, "funfacts", "sun", "\"fun-facts\" om sun - Sola, luna 
 
 }
 
+
+
 func main() {
     flag.Parse()
 
-	fmt.Println(fahrenheit, out, funfacts)
+	fmt.Println(F, out, funfacts)
 	fmt.Println("len(flag.Args())", len(flag.Args()))
-	fmt.Println("flag.Nflag()", flag.Nflag())
+	fmt.Println("flag.Nflag()", flag.NFlag())
 
-	f := "°Fahrenheit"
-	c := "°Celsius"
-	k := "Kelvin"
+
+	fmt.Println(F, C, K)
+	conv.FarhenheitToCelsius(100)
+	var Res float64;
 
 	//Omgjøring fra Fahrenheit til Celsius eller Kelvin.
-	switch Float64Var { 
-		case "f"
-			switch StringVar {
-                case "Celsius":
-                    fmt.Printf("%.2f grader Fahrenheit = %.2f grader Celsius", F, C)
-                case "Kelvin":
-					fmt.Printf("%.2f grader Fahrenheit = %.2f grader Kelvin", F, K)
-				default:
-				    fmt.Println("Error: Invalid output temperature type: %s\n", StringVar)
-					return
-            }
-	//Omgjøring fra Celsius til Fahrenheit eller Kelvin. 
-		case "c":
-            switch StringVar {
-				case "Fahrenheit":
-				    fmt.Printf("%.2f grader Celsius = %.2f grader Fahrenheit", C, F)
-                case "Kelvin":
-					fmt.Printf("%.2f grader Celsius = %.2f grader Kelvin", C, K)
-				default: 
-					fmt.Println("Error: Invalid output temperature type: %s\n", StringVar)
-					return
-			}
-	//Omgjøring fra Kelvin til Celsius eller Fahrenheit. 
-		case "k":
-            switch StringVar {	
-				case "Fahrenheit":
-				    fmt.Printf("%.2f grader Kelvin = %.2f grader Fahrenheit", K, F)
-                case "Celsius":
-					fmt.Printf("%.2f grader Kelvin = %.2f grader Celsius", K, C)
-				default: 
-					fmt.Println("Error: Invalid output temperature type: %s\n", StringVar)
-				    return
-            }
+	if(F !=  0) {
+		switch out {
+			case "C":
+				if isFlagPassed("F") {
+					Res = conv.FarhenheitToCelsius(C)
+					fmt.Println(Res)
+				} else if isFlagPassed("K") {
+					Res = conv.KelvinToCelsius(K)
+					fmt.Println(Res)
+				}
+
+			case "K":
+				if isFlagPassed("F") {
+					Res = conv.FarhenheitToKelvin(K)
+				}
+			default: 
+				fmt.Println("Default")
 		}
+	} 
+
+	//Omgjøring fra Celsius til Fahrenheit eller Kelvin. 
+	if(C != 0) {
+		switch out {
+
+		}
+		fmt.Println("Kelvin")
+	}
+
+	//Omgjøring fra Kelvin til Celsius eller Fahrenheit. 
+	if(K != 0) {
+		fmt.Println("Fahrenheit")
+	}     
+	fmt.Println()
+}
+
+	func isFlagPassed(name string) bool {
+		found := false
+		flag.Visit(func(f *flag.Flag) {
+			if f.Name == name {
+				found = true
+			}
+		})
+		return found
 	}
