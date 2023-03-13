@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"flag"
 
-	"github.com/FrostyAqua37/funtemps/conv"
+	"github.com/FrostyAqua37/funtemps"
 )
 
 var F float64
@@ -61,16 +61,34 @@ func main() {
 	//Omgjøring fra Celsius til Fahrenheit eller Kelvin. 
 	if(C != 0) {
 		switch out {
-
+			case "F":
+			if isFlagPassed("C") {
+				Res = conv.CelsiusToFahrenheit(C)
+				fmt.Println(Res)
+			}
+			case "K":
+			if isFlagPassed("C") {
+				Res = conv.CelsiusToKelvin(K)
+				fmt.Println(Res)
+			}
 		}
-		fmt.Println("Kelvin")
 	}
-
 	//Omgjøring fra Kelvin til Celsius eller Fahrenheit. 
 	if(K != 0) {
-		fmt.Println("Fahrenheit")
+		switch out {
+			case "C":
+			if isFlagPassed("K") {
+				Res = conv.KelvinToCelsius(C)
+				fmt.Println(Res)
+			}
+			case "F":
+			if isFlagPassed("K") {
+				Res = conv.KelvinToFahrenheit(F)
+				fmt.Println(Res)
+			}
+		}
 	}     
-	fmt.Println()
+	
 }
 
 	func isFlagPassed(name string) bool {
