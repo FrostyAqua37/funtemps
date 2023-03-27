@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"flag"
 
-	"github.com/FrostyAqua37/funtemps"
+	"github.com/FrostyAqua37/funtemps/conv"
 )
 
 var F float64
@@ -34,7 +34,6 @@ func main() {
 
 
 	fmt.Println(F, C, K)
-	conv.FarhenheitToCelsius(100)
 	var Res float64;
 
 	//Omgjøring fra Fahrenheit til Celsius eller Kelvin.
@@ -43,18 +42,14 @@ func main() {
 			case "C":
 				if isFlagPassed("F") {
 					Res = conv.FarhenheitToCelsius(C)
-					fmt.Println(Res)
-				} else if isFlagPassed("K") {
-					Res = conv.KelvinToCelsius(K)
-					fmt.Println(Res)
+					fmt.Println("Fahrenheit til Celsius", Res)
 				}
 
 			case "K":
 				if isFlagPassed("F") {
-					Res = conv.FarhenheitToKelvin(K)
+					Res := conv.FarhenheitToKelvin(K)
+					fmt.Println("Fahrenheit til Kelvin", Res)
 				}
-			default: 
-				fmt.Println("Default")
 		}
 	} 
 
@@ -62,14 +57,14 @@ func main() {
 	if(C != 0) {
 		switch out {
 			case "F":
-			if isFlagPassed("C") {
-				Res = conv.CelsiusToFahrenheit(C)
-				fmt.Println(Res)
+				if isFlagPassed("C") {
+					Res = conv.CelsiusToFahrenheit(F)
+					fmt.Println("Celsius til Fahrenheit", Res)
 			}
 			case "K":
-			if isFlagPassed("C") {
-				Res = conv.CelsiusToKelvin(K)
-				fmt.Println(Res)
+				if isFlagPassed("C") {
+					Res = conv.CelsiusToKelvin(K)
+					fmt.Println("Celsius til Kelvin", Res)
 			}
 		}
 	}
@@ -77,14 +72,14 @@ func main() {
 	if(K != 0) {
 		switch out {
 			case "C":
-			if isFlagPassed("K") {
-				Res = conv.KelvinToCelsius(C)
-				fmt.Println(Res)
+				if isFlagPassed("K") {
+					Res = conv.KelvinToCelsius(C)
+					fmt.Println("Kelvin til Celsius", Res)
 			}
 			case "F":
-			if isFlagPassed("K") {
-				Res = conv.KelvinToFahrenheit(F)
-				fmt.Println(Res)
+				if isFlagPassed("K") {
+					Res = conv.KelvinToFahrenheit(F)
+					fmt.Println("Kelvin til Fahrenheit", Res)
 			}
 		}
 	}     
